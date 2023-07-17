@@ -1,13 +1,4 @@
-const path = require("path");
-
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions;
-
-  const programsTemplate = path.resolve('./src/templates/organizations.js');
-  const hackersTemplate = path.resolve('./src/templates/hackers.js');
-  const changelogTemplate = path.resolve('./src/templates/changelog.js');
-  const glossaryTemplate = path.resolve('./src/templates/glossary.js');
-  const accessibilityTemplate = path.resolve('./src/templates/accessibility.js');
+ 'const path = require("path");'exports.createPages = ({ graphql, actions }) => { ' const { createPage, createRedirect } = actions;  const programsTemplate = path.resolve('./src/templates/organizations.js')  const hackersTemplate = path.resolve('./src/templates/hackers.js'); const changelogTemplate = path.resolve('./src/templates/changelog.js'); const glossaryTemplate = path.resolve('./src/templates/glossary.js');const accessibilityTemplate = path.resolve('./src/templates/accessibility.js');
 
   createRedirect({
     fromPath: `/programs/*`,
@@ -20,16 +11,14 @@ exports.createPages = ({ graphql, actions }) => {
       allMarkdownRemark(
         sort: { order: ASC, fields: [frontmatter___title] }
         limit: 1000
-      ) {
-        edges {
+      ) {  edges {
           node {
             html
-            frontmatter {
-              title
-              path
+ frontmatter {
+  title path
             }
-          }
-        }
+            
+          }      }
       }
     }
   `).then(result => {
